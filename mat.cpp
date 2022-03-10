@@ -2,6 +2,7 @@
 #include <iostream>
 #include <stdexcept>
 #include <string>
+#include <vector>
 using namespace std;
 
 // First step - build a expected matrix.
@@ -10,7 +11,7 @@ string ariel::mat(int cols , int rows , char symbol1 , char symbol2){
     if(rows % 2 == 0 || cols % 2 == 0 || rows < 1 || cols < 1){
         __throw_invalid_argument("rows and columns must be odd and positive.");
     }
-    char matrix[rows][cols];
+    vector<vector<char>> matrix(rows, vector<char> (cols,symbol1));
     int top = 0;
     int left = 0;
     int right = cols - 1; // cols
@@ -18,6 +19,8 @@ string ariel::mat(int cols , int rows , char symbol1 , char symbol2){
     int size = cols * rows;
     int count = 0;
     int mod = 0;
+ 
+    
     
     // Each time adding a frame to the matrix.
     // From large frame to small frame ( out --> in).
