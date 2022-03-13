@@ -21,6 +21,7 @@ main: Main.o $(OBJECTS)
 # Ohad Madei
 StudentTest1.cpp:  
 	curl https://raw.githubusercontent.com/Ohad-Ma/carpets-maker-1/master/Test.cpp > $@
+	
 # Dvir Biton
 StudentTest2.cpp: 
 	curl https://raw.githubusercontent.com/dvirBiton1/cpp-Ex1-part1/main/Test.cpp > $@
