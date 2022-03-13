@@ -4,11 +4,14 @@
 #include <string>
 #include <vector>
 using namespace std;
+const int limL = 33;
+const int limR = 126;
 
 // First step - build a expected matrix.
 // Second step - add the expected matrix to a string and return the string.
 string ariel::mat(int cols , int rows , char symbol1 , char symbol2){
-    checkInput(rows, cols);
+    checkInput1(rows, cols);
+    checkInput2(symbol1,symbol2);
     vector<vector<char>> matrix(rows, vector<char> (cols,symbol1));
     int top = 0;
     int left = 0;
@@ -58,8 +61,13 @@ string ariel::matrixToString(vector<vector<char>> matrix, int cols){
     }
     return result;
 }
-void ariel::checkInput(int rows, int cols){
+void ariel::checkInput1(int rows, int cols){
     if(rows % 2 == 0 || cols % 2 == 0 || rows < 1 || cols < 1){
         __throw_invalid_argument("rows and columns must be odd and positive.");
+    }
+}
+void ariel::checkInput2(char symbol1, char symbol2){
+    if(symbol1 < limL || symbol1 > limR || symbol2 < limL || symbol2 > limR){
+        __throw_invalid_argument("invalid symbols.");
     }
 }
