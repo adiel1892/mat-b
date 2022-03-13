@@ -20,9 +20,6 @@ string ariel::mat(int cols , int rows , char symbol1 , char symbol2){
     int size = cols * rows;
     int count = 0;
     int mod = 0;
- 
-    
-    
     // Each time adding a frame to the matrix.
     // From large frame to small frame ( out --> in).
     while(count < size){
