@@ -2,13 +2,7 @@
 #include <stdexcept>
 #include  <cmath>
 #include "mat.hpp"
-#include <string>
-#include <sstream>
-#include <algorithm>
-#include <vector>
 
-const int limL = 33;
-const int limR = 126;
 using namespace std;
 using namespace ariel;
 
@@ -21,16 +15,16 @@ bool getNum(const string& str,int *stringToInt)
     for (int i = 0; i < str.length(); i++)
     {
         int val = str[i] -'0';
-        if (i==0){
-            if (val==0){
+        if (i == 0){
+            if (val == 0){
                 return false;
             }
         }
-        if (val< 0|| val >9){
+        if (val < 0 || val > 9){
             return false;
         }
         else{
-            *stringToInt+= val * pow(10, len - 1);
+            *stringToInt += val * pow(10, len - 1);
             len--;
 
         }
@@ -44,12 +38,12 @@ int main() {
     cout << "All you need to do is enter 2 valid numbers and 2 valid characters.\n";
     cout << "Valid number is a odd number bigger than 0.\n";
     cout << "Valid character is a character between 33-126 in ascii value.\n";
-    int columns=0;
+    int columns = 0;
     int rows = 0;
     string num1, num2;
     string char1, char2; // for the characters input
     char valid_char1, valid_char2; // for the mattress characters
-    bool validTotalInput= false;
+    bool validTotalInput = false;
     // while loop until total input is valid.
     while (!validTotalInput) {
         cout << "Enter a valid number for the columns: ";
