@@ -8,9 +8,7 @@ using namespace std;
 // First step - build a expected matrix.
 // Second step - add the expected matrix to a string and return the string.
 string ariel::mat(int cols , int rows , char symbol1 , char symbol2){
-    if(rows % 2 == 0 || cols % 2 == 0 || rows < 1 || cols < 1){
-        __throw_invalid_argument("rows and columns must be odd and positive.");
-    }
+    checkInput(rows, cols);
     vector<vector<char>> matrix(rows, vector<char> (cols,symbol1));
     int top = 0;
     int left = 0;
@@ -47,8 +45,12 @@ string ariel::mat(int cols , int rows , char symbol1 , char symbol2){
         left++;
         mod++;
     }
+    string result = matrixToString(matrix, cols);
+    return result;
+}
+string ariel::matrixToString(vector<vector<char>> matrix, int cols){
     string result;
-    for(int i = 0; i < rows; i++){
+    for(int i = 0; i < matrix.size(); i++){
         for(int j = 0; j < cols; j++){
             result += matrix[i][j];
         }
@@ -56,4 +58,8 @@ string ariel::mat(int cols , int rows , char symbol1 , char symbol2){
     }
     return result;
 }
- 
+void ariel::checkInput(int rows, int cols){
+    if(rows % 2 == 0 || cols % 2 == 0 || rows < 1 || cols < 1){
+        __throw_invalid_argument("rows and columns must be odd and positive.");
+    }
+}
